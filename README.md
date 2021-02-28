@@ -20,7 +20,7 @@
 
 ### Association
 - has_many :items
-- belongs_to :history
+- has_one :history
 
 
 
