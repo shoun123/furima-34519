@@ -4,7 +4,7 @@
 
 | Column               | Type   | Options     |
 | -------------------- | ------ | ----------- |
-| email                | string | null: false, foreign_key: true|
+| email                | string | null: false, unique:true|
 | encrypted_password   | string | null: false |
 | last_name            | string | null: false |
 | first_name           | string | null: false |
@@ -22,11 +22,11 @@
 | category_id| integer    | null: false | カテゴリー
 | price      | integer    | null: false | 値段
 | seller     | string     | null: false | 売り手
-| status_id  | string     | null: false | 商品の状態
-| delivery_id| string     | null: false | 配送料の負担
-| area_id    | string     | null: false | 発送元の地域
+| status_id  | integer    | null: false | 商品の状態
+| delivery_id| integer    | null: false | 配送料の負担
+| area_id    | integer    | null: false | 発送元の地域
 | day_id     | integer    | null: false | 発送までの日数
-| user_id    | integer    | null: false |
+| user_id    | integer    | null: false, foreign_key: true |
 
 
 
