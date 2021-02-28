@@ -14,12 +14,13 @@
 | last_name            | string | null: false |
 | first_name           | string | null: false |
 | last_furigana        | string | null: false |
-| last_furigana        | string | null: false |
+| first_furigana       | string | null: false |
 | birthday             | date   | null: false |
 | nickname             | string | null: false |
 
 ### Association
-- has_many :item
+- has_many :items
+- belongs_to :history
 
 
 
@@ -39,7 +40,7 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :history
+- has_one :history
 
 
 
