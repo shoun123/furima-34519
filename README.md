@@ -24,3 +24,4 @@
 | Column     | Type       | Options     |
 | ---------- | ---------- | ----------- |
 | address    | text       | null: false |
+　
