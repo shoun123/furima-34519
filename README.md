@@ -18,6 +18,9 @@
 | birthday             | date   | null: false |
 | nickname             | string | null: false |
 
+### Association
+- belongs_to :item
+
 
 
 ## itemsテーブル
@@ -34,6 +37,9 @@
 | user       | references | null: false, foreign_key: true |
 | description| text       | null: false | 商品説明
 
+### Association
+- belongs_to :user
+
 
 
 
@@ -49,6 +55,11 @@
 | area_id           | integer    | null: false | 発送元の地域
 | history           | references | null: false, foreign_key: true |
 
+### Association
+- belongs_to :item
+- belongs_to :user
+
+
 
 
 ## historiesテーブル       商品の購入履歴を保存するテーブル
@@ -62,5 +73,4 @@
 
 - belongs_to :item
 - belongs_to :user
-- belongs_to :address
-
+- has_one :address
