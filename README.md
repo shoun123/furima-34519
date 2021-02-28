@@ -47,12 +47,13 @@
 | postal_code       | string     | null: false | 郵便番号
 | phone_number      | string     | null: false | 電話番号
 | area_id           | integer    | null: false | 発送元の地域
+| history           | references | null: false, foreign_key: true |
 
 
 
 ## historiesテーブル       商品の購入履歴を保存するテーブル
 | Column            | Type       | Options     |
 | ----------------- | ---------- | ----------- |
-| history           | string     | null: false | 購入履歴
 | user              | references | null: false, foreign_key: true |
 | item              | references | null: false, foreign_key: true |
+| address           | references | null: false, foreign_key: true |
