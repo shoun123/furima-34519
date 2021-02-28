@@ -16,6 +16,7 @@
 | last_furigana        | string | null: false |
 | last_furigana        | string | null: false |
 | birthday             | date   | null: false |
+| nickname             | string | null: false |
 
 
 
@@ -42,9 +43,9 @@
 | ----------------- | ---------- | ----------- |
 | municipalities    | string     | null: false | 市町村
 | address           | integer    | null: false | 番地
-| building_number   | integer    | null: false | 建物番号
-| postal_code       | integer    | null: false | 郵便番号
-| phone_number      | integer    | null: false | 電話番号
+| building_number   | string     |               建物番号
+| postal_code       | string     | null: false | 郵便番号
+| phone_number      | string     | null: false | 電話番号
 
 
 
