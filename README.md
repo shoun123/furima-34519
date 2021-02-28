@@ -31,7 +31,7 @@
 | delivery_id| integer    | null: false | 配送料の負担
 | area_id    | integer    | null: false | 発送元の地域
 | day_id     | integer    | null: false | 発送までの日数
-| user_id    | integer    | null: false, foreign_key: true |
+| user       | references | null: false, foreign_key: true |
 | description| text       | null: false | 商品説明
 
 
@@ -46,10 +46,13 @@
 | building_number   | string     |               建物番号
 | postal_code       | string     | null: false | 郵便番号
 | phone_number      | string     | null: false | 電話番号
+| area_id           | integer    | null: false | 発送元の地域
 
 
 
-## historyテーブル       商品の購入履歴を保存するテーブル
+## historiesテーブル       商品の購入履歴を保存するテーブル
 | Column            | Type       | Options     |
 | ----------------- | ---------- | ----------- |
 | history           | string     | null: false | 購入履歴
+| user              | references | null: false, foreign_key: true |
+| item              | references | null: false, foreign_key: true |
