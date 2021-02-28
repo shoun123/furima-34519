@@ -1,6 +1,11 @@
 # テーブル設計
+-Things you may want to cover:
+-This README would normally document whatever steps are necessary to get the
+-* Database initialization
+
 
 ## usersテーブル
+
 
 | Column               | Type   | Options     |
 | -------------------- | ------ | ----------- |
@@ -21,12 +26,12 @@
 | product    | string     | null: false | 製品
 | category_id| integer    | null: false | カテゴリー
 | price      | integer    | null: false | 値段
-| seller     | string     | null: false | 売り手
 | status_id  | integer    | null: false | 商品の状態
 | delivery_id| integer    | null: false | 配送料の負担
 | area_id    | integer    | null: false | 発送元の地域
 | day_id     | integer    | null: false | 発送までの日数
 | user_id    | integer    | null: false, foreign_key: true |
+| description| text       | null: false | 商品説明
 
 
 
