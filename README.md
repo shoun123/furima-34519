@@ -42,10 +42,14 @@
 | Column            | Type       | Options     |
 | ----------------- | ---------- | ----------- |
 | municipalities    | string     | null: false | 市町村
-| address           | integer    | null: false | 番地
+| address           | string     | null: false | 番地
 | building_number   | string     |               建物番号
 | postal_code       | string     | null: false | 郵便番号
 | phone_number      | string     | null: false | 電話番号
 
 
 
+## historyテーブル       商品の購入履歴を保存するテーブル
+| Column            | Type       | Options     |
+| ----------------- | ---------- | ----------- |
+| history           | string     | null: false | 購入履歴
