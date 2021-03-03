@@ -9,4 +9,6 @@ class User < ApplicationRecord
   validates :last_furigana,     presence: true
   validates :first_furigana,    presence: true
   validates :birthday,          presence: true
+
+
 end
