@@ -3,9 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable
-
   validates :email, uniqueness: { case_sensitive: true }
-
 
   with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/, message: '全角文字を使用してください' } do
     validates :nickname
@@ -18,10 +16,9 @@ class User < ApplicationRecord
     validates :first_furigana
   end
 
-
   validates :password, presence: true, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
-
   validates :birthday, presence: true
 
+  has_many :messages
 
 end
