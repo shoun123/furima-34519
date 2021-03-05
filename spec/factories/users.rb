@@ -9,8 +9,7 @@ FactoryBot.define do
     birthday { '19800410' }
 
     email { Faker::Internet.free_email }
-    password = Faker::Internet.password(min_length: 6)
-    password = '4649abcH'
+    password = '1a' + Faker::Internet.password(min_length: 6)
 
     password { password }
     password_confirmation { password }
@@ -19,4 +18,3 @@ FactoryBot.define do
 end
 
 
-# { '1a' + Faker::Internet.password(min_length: 6) }
