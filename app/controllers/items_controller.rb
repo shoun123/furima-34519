@@ -1,11 +1,12 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: :index
+
   def index
-    @items = Item.all
+    # @items = Item.all
   end
 
   def new
-    @articles = Article.order("created_at DESC")
-    redirect_to new_user_registration_path unless current_user
+    # redirect_to new_user_registration_path unless current_user
     @item = Item.new
     end
 

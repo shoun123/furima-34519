@@ -22,35 +22,35 @@ RSpec.describe Item, type: :model do
 
 
     it "カテゴリーの情報が必須であること" do
-      @item.category_id = '1'
+      @item.category_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Category must be other than 1")
     end
 
 
     it "商品の状態についての情報が必須であること" do
-      @item.status_id = '1'
+      @item.status_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Status must be other than 1")
     end
 
 
     it "配送料の負担についての情報が必須であること" do
-      @item.delivery_id = '1'
+      @item.delivery_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Delivery must be other than 1")
     end
 
 
     it "発送元の地域についての情報が必須であること" do
-      @item.area_id = '1'
+      @item.area_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Area must be other than 1")
     end
 
 
     it "発送までの日数についての情報が必須であること" do
-      @item.day_id = '1'
+      @item.day_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Day must be other than 1")
     end
@@ -81,6 +81,22 @@ RSpec.describe Item, type: :model do
       @item.price = '１０００'
       @item.valid?
       expect(@item.errors.full_messages).to include("User can't be blank")
+    end
+
+
+    it "価格が半角英数字混合では出品できない" do
+      @item.price = '123１２３'
+      @item.valid?
+      expect(@item.errors.full_messages).to include("User can't be blank")
+
+    end
+
+
+    it "価格が半角英字のみでは出品できない" do
+      @item.price = 'aaaaa'
+      @item.valid?
+      expect(@item.errors.full_messages).to include("User can't be blank")
+
     end
 
 
