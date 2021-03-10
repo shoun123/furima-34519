@@ -5,10 +5,8 @@ class ItemsController < ApplicationController
 
   def new
     @articles = Article.order("created_at DESC")
+    redirect_to root_path unless current_user
     @item = Item.new
-      # if current_user == @items.user
-      #   redirect_to root_path
-      # end
     end
 
   def create

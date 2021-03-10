@@ -17,7 +17,7 @@ class Item < ApplicationRecord
   end
 
 
-  validates :price, presence: true, length: { maximum: 300 }, length: { minimum: 9999999 }
+  validates :price, presence: true, length: { minimum: 300 }, length: { maximum: 9999999 }
 
 
   belongs_to :user
