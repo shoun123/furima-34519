@@ -10,3 +10,14 @@ ja:
         last_furigana: 苗字の振り仮名
         first_furigana: 名前の振り仮名
         birthday: 誕生日
+
+      item:
+        product: 製品名
+        description: 商品の説明
+        image: 出品画像
+        category_id: カテゴリー
+        status_id: 商品の状態
+        delivery_id: 配送料の負担
+        area_id: 発送元の地域
+        day_id: 発送までの
+        price: 価格

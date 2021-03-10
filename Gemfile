@@ -69,3 +69,8 @@ gem 'faker'
 gem "rails-i18n"
 
 gem 'pry-rails'
+
+gem 'active_hash'
+
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
