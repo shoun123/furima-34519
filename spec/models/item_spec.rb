@@ -7,6 +7,18 @@ RSpec.describe Item, type: :model do
     end
 
 
+    it '正しく記入されていれば出品できる' do
+      expect(@item).to be_valid
+    end
+
+
+    it "商品名が必須であること" do
+      @item.product = ""
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Product can't be blank")
+    end
+
+
     it "商品画像を1枚つけることが必須であること" do
       @item.image = nil
       @item.valid?
@@ -64,39 +76,44 @@ RSpec.describe Item, type: :model do
 
 
     it "販売価格は、¥300以下では保存できないこと" do
-      @item.price = 299
+      @item.price = '299'
       @item.valid?
-      expect(@item.errors.full_messages).to include("User can't be blank")
+      expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
     end
 
 
     it "販売価格は、¥9,999,999以上では保存できないこと" do
-      @item.price = 10000000
+      @item.price = '10000000'
       @item.valid?
-      expect(@item.errors.full_messages).to include("User can't be blank")
+      expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
     end
 
 
     it "販売価格は半角数字のみ保存可能であること" do
-      @item.price = '１０００'
+      @item.price = "１０００"
       @item.valid?
-      expect(@item.errors.full_messages).to include("User can't be blank")
+      expect(@item.errors.full_messages).to include("Price is not a number")
     end
 
 
     it "価格が半角英数字混合では出品できない" do
-      @item.price = '123１２３'
+      @item.price = "123１２３"
       @item.valid?
-      expect(@item.errors.full_messages).to include("User can't be blank")
-
+      expect(@item.errors.full_messages).to include("Price is not a number")
     end
 
 
     it "価格が半角英字のみでは出品できない" do
-      @item.price = 'aaaaa'
+      @item.price = "aaaaa"
       @item.valid?
-      expect(@item.errors.full_messages).to include("User can't be blank")
+      expect(@item.errors.full_messages).to include("Price is not a number")
+    end
 
+
+    it 'ユーザーが紐付いていなければ投稿できない' do
+      @item.user = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include('User must exist')
     end
 
 
