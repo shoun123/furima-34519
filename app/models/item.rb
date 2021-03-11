@@ -1,9 +1,11 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
 
   with_options presence: true do
     validates :product
     validates :description
     validates :image
+    validates :price
   end
 
 
@@ -22,10 +24,6 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-
-  def was_attached?
-    self.image.attached?
-  end
 
 
 end

@@ -76,14 +76,14 @@ RSpec.describe Item, type: :model do
 
 
     it "販売価格は、¥300以下では保存できないこと" do
-      @item.price = '299'
+      @item.price = 299
       @item.valid?
       expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
     end
 
 
     it "販売価格は、¥9,999,999以上では保存できないこと" do
-      @item.price = '10000000'
+      @item.price = 10000000
       @item.valid?
       expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
     end
@@ -96,7 +96,7 @@ RSpec.describe Item, type: :model do
     end
 
 
-    it "価格が半角英数字混合では出品できない" do
+    it "価格が全角半角数字混合では出品できない" do
       @item.price = "123１２３"
       @item.valid?
       expect(@item.errors.full_messages).to include("Price is not a number")
@@ -109,6 +109,13 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Price is not a number")
     end
 
+
+    it "価格が半角英数字混合では出品できない" do
+      @item.price = "123aaa"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is not a number")
+
+    end
 
     it 'ユーザーが紐付いていなければ投稿できない' do
       @item.user = nil

@@ -6,14 +6,12 @@ class ItemsController < ApplicationController
   end
 
   def new
-    # redirect_to new_user_registration_path unless current_user
     @item = Item.new
     end
 
   def create
     @item = Item.new(item_params)
-    if @item.valid?
-      @item.save
+    if @item.save
       redirect_to root_path
     else
       render :new

@@ -10,8 +10,6 @@ FactoryBot.define do
     area_id { 2 }
     day_id { 2 }
     description { 'あああああああああああああああああああ' }
-    user_id { 3 }
-    id { 2 }
 
     association :user
 
