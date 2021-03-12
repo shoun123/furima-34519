@@ -8,7 +8,6 @@ class Item < ApplicationRecord
     validates :price
   end
 
-
   with_options presence: true, numericality: { other_than: 1 } do
     validates :category_id
     validates :status_id
@@ -21,7 +20,11 @@ class Item < ApplicationRecord
 
 
   belongs_to :user
+  belongs_to :category
   belongs_to :delivery
+  belongs_to :status
+  belongs_to :area
+  belongs_to :day
   has_one_attached :image
 
 
