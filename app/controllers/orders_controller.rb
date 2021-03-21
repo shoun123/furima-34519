@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_address_history, only: [:index, :create]
+
 
   def index
-    @item = Item.find(params[:item_id])
-
       if @item.user.id == current_user.id || @item.history.present?
         redirect_to root_path
       end
@@ -13,7 +13,6 @@ class OrdersController < ApplicationController
 
   def create
     @address_history = AddressHistory.new(address_params)
-    @item = Item.find(params[:item_id])
     if @address_history.valid?
       pay_item
       @address_history.save
@@ -28,6 +27,10 @@ class OrdersController < ApplicationController
 
   def address_params
     params.require(:address_history).permit(:municipalities, :address, :postal_code, :building_number, :phone_number, :area_id ).merge(token: params[:token], item_id: params[:item_id]  , user_id: current_user.id)
+  end
+
+  def set_address_history
+    @item = Item.find(params[:item_id])
   end
 
 

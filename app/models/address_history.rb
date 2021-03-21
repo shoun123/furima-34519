@@ -8,10 +8,12 @@ class AddressHistory
     validates :address
     validates :phone_number
     validates :token
+    validates :user_id
+    validates :item_id
   end
 
   validates :postal_code, presence: true, format: { with: /\A\d{3}[-]\d{4}\z/ }
-  validates :phone_number, presence: true, format: { with:/\A\d{11}\z/ }
+  validates :phone_number, presence: true, format: { with:/\A\d{10,11}\z/ }
 
   with_options presence: true, numericality: { other_than: 1 } do
     validates :area_id
