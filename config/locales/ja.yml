@@ -21,3 +21,11 @@ ja:
         area_id: 発送元の地域
         day_id: 発送までの
         price: 価格
+
+        address_history:
+          municipalities: 市町村
+          address: 番地
+          building_number: 建物番号
+          postal_code: 郵便番号
+          phone_number: 電話番号
+          area_id: 発送元の地域

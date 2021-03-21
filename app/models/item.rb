@@ -25,6 +25,7 @@ class Item < ApplicationRecord
   belongs_to :status
   belongs_to :area
   belongs_to :day
+  has_one :history
   has_one_attached :image
 
 

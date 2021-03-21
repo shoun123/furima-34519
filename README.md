@@ -6,7 +6,6 @@
 
 ## usersテーブル
 
-
 | Column               | Type   | Options     |
 | -------------------- | ------ | ----------- |
 | email                | string | null: false, unique:true|
@@ -45,7 +44,7 @@
 
 
 
-## addressesテーブル
+## addressesテーブル order
 
 | Column            | Type       | Options     |
 | ----------------- | ---------- | ----------- |
@@ -64,6 +63,7 @@
 
 
 ## historiesテーブル       商品の購入履歴を保存するテーブル
+
 | Column            | Type       | Options     |
 | ----------------- | ---------- | ----------- |
 | user              | references | null: false, foreign_key: true |
