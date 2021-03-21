@@ -96,6 +96,18 @@ RSpec.describe AddressHistory, type: :model do
         expect(@address_history.errors.full_messages).to include("Token can't be blank")
       end
 
+      it "user_idが空だと購入できない" do
+        @address_history.user_id = ""
+        @address_history.valid?
+        expect(@address_history.errors.full_messages).to include("User can't be blank")
+      end
+
+      it "item_idが空だと購入できない" do
+        @address_history.item_id = ""
+        @address_history.valid?
+        expect(@address_history.errors.full_messages).to include("Item can't be blank")
+
+      end
     end
 
 

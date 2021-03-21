@@ -1,13 +1,10 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_address_history, only: [:index, :create]
+  before_action :redirect, only: [:index, :create]
 
 
   def index
-      if @item.user.id == current_user.id || @item.history.present?
-        redirect_to root_path
-      end
-
     @address_history = AddressHistory.new
   end
 
@@ -33,9 +30,14 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
+  def redirect
+    if @item.user.id == current_user.id || @item.history.present?
+      redirect_to root_path
+    end
+  end
 
   def pay_item
-    Payjp.api_key = "sk_test_ff5989d889fb8624bc4a2c07"  # 自身のPAY.JPテスト秘密鍵を記述しましょう
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: @item.price,   # 商品の値段
       card: address_params[:token],     # カードトークン
