@@ -3,7 +3,10 @@ require 'rails_helper'
 RSpec.describe AddressHistory, type: :model do
   describe "商品購入機能" do
     before do
-      @address_history = FactoryBot.build(:address_history)
+      @user = FactoryBot.create(:user)
+      @item = FactoryBot.create(:item)
+      @address_history = FactoryBot.build(:address_history, user_id: @user.id, item_id: @item.id)
+      sleep 0.1
     end
 
 

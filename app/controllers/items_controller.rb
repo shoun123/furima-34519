@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :redirect, only: [:edit, :update, :destroy]
+  before_action :item_edit, only: [:edit, :update]
 
 
   def index
@@ -25,9 +26,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.history.present?
-      redirect_to root_path
-    end
   end
 
   def update
@@ -61,4 +59,10 @@ class ItemsController < ApplicationController
     end
   end
 
+
+  def item_edit
+    if @item.history.present?
+      redirect_to root_path
+    end
+  end
 end
