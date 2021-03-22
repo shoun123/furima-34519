@@ -6,7 +6,6 @@ class AddressHistory
   with_options presence: true do
     validates :municipalities
     validates :address
-    validates :phone_number
     validates :token
     validates :user_id
     validates :item_id
@@ -22,7 +21,7 @@ class AddressHistory
 
   def save
     his = History.create(item_id: item_id, user_id: user_id)
-    Address.create(municipalities: municipalities, address: address, postal_code: postal_code, building_number: building_number, phone_number: phone_number, token: token, area_id: area_id, history_id: his.id)
+    Address.create(municipalities: municipalities, address: address, postal_code: postal_code, building_number: building_number, phone_number: phone_number,  area_id: area_id, history_id: his.id)
   end
 end
 
