@@ -26,6 +26,7 @@ class OrdersController < ApplicationController
     params.require(:address_history).permit(:municipalities, :address, :postal_code, :building_number, :phone_number, :area_id ).merge(token: params[:token], item_id: params[:item_id]  , user_id: current_user.id)
   end
 
+
   def set_address_history
     @item = Item.find(params[:item_id])
   end
